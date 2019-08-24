@@ -66,7 +66,7 @@ INSERT INTO border_etl (
 SELECT be."Date", to_date(be."Date",'Mon YYYY') AS FoM,be."State", SUM(be."Number_of_Passengers") AS "Total_Passengers", fx."Average_FX", cpi."CPI"
 FROM border_entry AS be
 LEFT JOIN fx_rates AS fx ON be."Date" = fx."Date"
-LEFT JOIN cpi on be."Date" = cpi."Date" 
+LEFT JOIN cpi ON be."Date" = cpi."Date" 
 GROUP BY be."Date", be."State", fx."Average_FX", cpi."CPI"
 ORDER BY FoM,be."State";
 
