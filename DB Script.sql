@@ -13,7 +13,7 @@ CREATE TABLE public.fx_rates
 (
     ID SERIAL NOT NULL,
     "Date" VARCHAR,
-    "Closing_Rate" NUMERIC(6, 4),
+    "Average_Closing_Rate" NUMERIC(6, 4),
     PRIMARY KEY (ID)
 );
 
@@ -54,7 +54,7 @@ CREATE TABLE public.border_etl (
 )
 
 -- Join tables
-SELECT Date, State, Total_Passengers, Average_FX, CPI
+SELECT Date, State, Total_Passengers, Average_Closing_Rate, CPI
 FROM border_entry AS be
 LEFT JOIN fx_rates AS fx ON be.Date = fx.Date
 LEFT JOIN cpi on be.Date = cpi.Date 
