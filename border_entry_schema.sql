@@ -1,8 +1,8 @@
-﻿
--- If table already present
-DROP TABLE "border_entry"
+-- If table already exists
+DROP TABLE border_entry
 
-CREATE TABLE "border_entry" (
+-- Create table to hold US border entry data
+CREATE TABLE public.border_entry (
     "ID" SERIAL   NOT NULL,
     "Date" DATE   NOT NULL,
     "Transportation Type" VARCHAR   NOT NULL,
@@ -13,4 +13,3 @@ CREATE TABLE "border_entry" (
         "ID"
      )
 );
-

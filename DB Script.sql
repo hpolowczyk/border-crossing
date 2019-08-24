@@ -1,3 +1,4 @@
+-- Create border_db 
 CREATE DATABASE border_db
     WITH 
     OWNER = postgres
@@ -7,19 +8,17 @@ CREATE DATABASE border_db
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
-
+-- Create table to hold FX rates
 CREATE TABLE public.fx_rates
 (
     ID serial NOT NULL,
     "Date" date,
     "Closing_Rate" numeric(6, 4),
-    PRIMARY KEY (id)
-)
+    PRIMARY KEY (ID)
+);
 
-
-
-
-CREATE TABLE "border_entry" (
+-- Create table to hold US border entry data
+CREATE TABLE public.border_entry (
     "ID" SERIAL   NOT NULL,
     "Date" DATE   NOT NULL,
     "Transportation Type" VARCHAR   NOT NULL,
@@ -30,3 +29,16 @@ CREATE TABLE "border_entry" (
         "ID"
      )
 );
+
+-- Create table to hold monthly CPI data
+CREATE TABLE public.cpi (
+    "ID" SERIAL   NOT NULL,
+    "Date" DATE   NOT NULL,
+    "CPI" Float   NOT NULL,
+    CONSTRAINT "pk_cpi" PRIMARY KEY (
+        "ID"
+     )
+);
+
+-- Join tables
+SELECT 
