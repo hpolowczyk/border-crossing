@@ -11,16 +11,16 @@ CREATE DATABASE border_db
 -- Create table to hold FX rates
 CREATE TABLE public.fx_rates
 (
-    ID serial NOT NULL,
-    "Date" date,
-    "Closing_Rate" numeric(6, 4),
+    ID SERIAL NOT NULL,
+    "Date" VARCHAR,
+    "Closing_Rate" NUMERIC(6, 4),
     PRIMARY KEY (ID)
 );
 
 -- Create table to hold US border entry data
 CREATE TABLE public.border_entry (
     "ID" SERIAL   NOT NULL,
-    "Date" DATE   NOT NULL,
+    "Date" VARCHAR   NOT NULL,
     "Transportation Type" VARCHAR   NOT NULL,
     "City" VARCHAR   NOT NULL,
     "State" VARCHAR   NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE public.border_entry (
 -- Create table to hold monthly CPI data
 CREATE TABLE public.cpi (
     "ID" SERIAL   NOT NULL,
-    "Date" DATE   NOT NULL,
+    "Date" VARCHAR   NOT NULL,
     "CPI" Float   NOT NULL,
     CONSTRAINT "pk_cpi" PRIMARY KEY (
         "ID"
